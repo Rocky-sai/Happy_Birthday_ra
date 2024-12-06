@@ -1,34 +1,17 @@
-/* General Reset */
+/* General reset and mobile-first approach */
 * {
-    margin: 1;
-    padding: 1;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-/* Main Background */
+/* Body background and text */
 body {
-    background-color: #000000; /* Black Background */
+    background-color: #000000;
     font-family: 'Arial', sans-serif;
     color: white;
     text-align: center;
-}
-
-/* Birthday Wishes Styling */
-.birthday-wish {
-    font-size: 4rem;
-    font-weight: bold;
-    color: #FFD700; /* Light Gold */
-    text-shadow: 2px 2px 4px #000000; /* Glow effect */
-    animation: shineEffect 2s ease-in-out infinite;
-}
-
-.birthday-quote {
-    font-size: 2rem;
-    font-style: italic;
-    color: #ADD8E6; /* Light Blue */
-    margin-top: 20px;
-    text-shadow: 2px 2px 4px #000000; /* Glow effect */
-    animation: shineEffect 3s ease-in-out infinite;
+    padding: 0;
 }
 
 /* Shine Effect Animation */
@@ -44,9 +27,38 @@ body {
     }
 }
 
-/* GIF Animations */
+/* Birthday Wishes */
+.birthday-wish {
+    font-family: 'Times New Roman', serif;
+    font-size: 4rem;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px #000;
+    animation: typing 3s steps(30) 1s forwards, shineEffect 3s infinite;
+}
+
+.birthday-quote {
+    font-family: 'Times New Roman', serif;
+    font-size: 2rem;
+    color: #ADD8E6;
+    margin-top: 20px;
+    animation: typing 3s steps(30) 1s forwards, shineEffect 3s infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+
+/* Rainbow Border Container */
+.rainbow-border-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+/* GIFs for festive effect */
 .gif-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -56,140 +68,111 @@ body {
 
 .gif {
     position: absolute;
-    animation: gifAnimation 5s ease-in-out infinite;
+    width: 100px; /* Adjusting size of the gifs */
 }
 
 #top-left-gif {
-    top: 10px;
-    left: 10px;
-    width: 100px;
+    top: 20px;
+    left: 20px;
 }
 
 #top-right-gif {
-    top: 10px;
-    right: 10px;
-    width: 100px;
+    top: 20px;
+    right: 20px;
 }
 
 #bottom-left-gif {
-    bottom: 10px;
-    left: 10px;
-    width: 100px;
+    bottom: 20px;
+    left: 20px;
 }
 
 #bottom-right-gif {
-    bottom: 10px;
-    right: 10px;
-    width: 100px;
+    bottom: 20px;
+    right: 20px;
 }
 
-@keyframes gifAnimation {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-}
-
-/* Book Animation Styling */
+/* Book Container and Animation */
 .book-container {
     margin-top: 30px;
 }
 
-.book-image {
+.book-cover {
     width: 250px;
     cursor: pointer;
     animation: fadeIn 2s ease-in-out;
     transition: transform 0.3s ease;
 }
 
-.book-image:hover {
-    transform: scale(1.1); /* Slightly enlarges on hover */
+.book-cover:hover {
+    transform: scale(1.1);
 }
 
-/* Book Pages Styling */
 .book {
     display: none;
     justify-content: center;
+    transition: opacity 1s ease;
     transform: scale(0);
-    transition: transform 1s ease-in-out;
 }
 
 .book.open {
     display: flex;
     transform: scale(1);
+    opacity: 1;
 }
 
 .page {
     display: flex;
     justify-content: center;
     padding: 20px;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease;
     opacity: 0;
 }
 
-.page img {
-    width: 250px;
-    margin: 10px;
-    border-radius: 10px;
+.page-1 {
+    opacity: 1;
 }
 
 .left-page, .right-page {
-    width: 300px;
-    height: 400px;
-    background-color: #000000;
+    flex: 1;
     margin: 10px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: justify;
 }
 
-.left-page p, .right-page p {
-    font-size: 1.5rem;
-    color: #ededed;
-    font-weight: bold;
+.left-page img, .right-page img {
+    max-width: 100%;
+    border-radius: 5px;
 }
 
-/* Celebration Popup Styling */
+/* Popup for Celebration */
 .celebration-popup {
-    display: none;
-    background-color: #FFD700;
-    color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
     padding: 20px;
     border-radius: 10px;
-    font-size: 2rem;
-    position: absolute;
-    top: 78%;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-    animation: popupAnimation 2s ease-in-out;
+    font-size: 1.5rem;
+    display: none;
 }
 
-@keyframes popupAnimation {
+/* FadeIn Animation */
+@keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: translateX(-50%) scale(0.8);
     }
     100% {
         opacity: 1;
-        transform: translateX(-50%) scale(1);
     }
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .birthday-wish {
-        font-size: 2.5rem;
+/* Typewriter effect */
+@keyframes typing {
+    from {
+        width: 0;
     }
-
-    .birthday-quote {
-        font-size: 1.5rem;
-    }
-
-    .left-page, .right-page {
-        width: 250px;
-        height: 350px;
+    to {
+        width: 100%;
     }
 }
