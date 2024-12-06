@@ -7,17 +7,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Rainbow Border Container -->
     <div class="rainbow-border-container">
-        <!-- Main Container -->
         <div class="container">
-            <!-- Birthday Wishes Section -->
             <div class="wishes-section">
-                <h1 class="birthday-wish">Happy Birthday, Pandi!</h1>
-                <p class="birthday-quote">"May this year be your most special one yet!"</p>
+                <h1 class="birthday-wish shine-effect">Happy Birthday, Pandi!</h1>
+                <p class="birthday-quote shine-effect">"May this year be your most special one yet!"</p>
             </div>
 
-            <!-- GIFs on the Sides and Corners -->
+            <!-- GIFs -->
             <div class="gif-container">
                 <img class="gif" src="assets/gifs/balloon.gif" alt="Balloon GIF" id="top-left-gif">
                 <img class="gif" src="assets/gifs/celebration.gif" alt="Celebration GIF" id="top-right-gif">
@@ -25,23 +22,21 @@
                 <img class="gif" src="assets/gifs/fireworks.gif" alt="Fireworks GIF" id="bottom-right-gif">
             </div>
 
-            <!-- Book Image with Click Animation -->
+            <!-- Book Cover and Opening -->
             <div class="book-container">
-                <img class="book-image" src="assets/images/book.png" alt="Book" onclick="openBook()">
+                <img class="book-cover" src="assets/images/book-cover.png" alt="Book Cover" onclick="openBook()">
             </div>
 
-            <!-- Celebration Popup -->
             <div class="celebration-popup" id="celebrationPopup">
                 <p>🎉 Time to Celebrate! 🎉</p>
             </div>
 
-            <!-- Book Animation for Text and Photos -->
+            <!-- Book Pages Animation -->
             <div class="book" id="book">
-                <!-- Page 1 -->
-                <div class="page page-1" onclick="nextPage(2)">
+                <div class="page page-1" onclick="nextPage(1)">
                     <div class="right-page">
                         <p class="birthday-message">
-                            When crafting the perfect birthday message for someone with a December birthday, 
+                            When crafting the perfect birthday message for someone with a December birthday,
                             why not incorporate the magic of the holidays?
                         </p>
                     </div>
@@ -49,8 +44,8 @@
                         <img src="assets/images/photo1.png" alt="Photo 1">
                     </div>
                 </div>
-                <!-- Page 2 -->
-                <div class="page page-2" onclick="nextPage(3)">
+
+                <div class="page page-2" onclick="nextPage(2)">
                     <div class="left-page">
                         <img src="assets/images/photo2.png" alt="Photo 2">
                     </div>
@@ -58,14 +53,14 @@
                         <img src="assets/images/photo3.png" alt="Photo 3">
                     </div>
                 </div>
-                <!-- Page 3 -->
-                <div class="page page-3" onclick="nextPage(1)">
+
+                <div class="page page-3" onclick="nextPage(3)">
                     <div class="left-page">
                         <img src="assets/images/photo4.png" alt="Photo 4">
                     </div>
                     <div class="right-page">
                         <p class="birthday-message">
-                            Sending you warm birthday wishes wrapped up in holiday cheer. 
+                            Sending you warm birthday wishes wrapped up in holiday cheer.
                             May your day be merry, bright, and full of cake!
                         </p>
                     </div>
@@ -74,7 +69,6 @@
         </div>
     </div>
 
-    <!-- Include JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
