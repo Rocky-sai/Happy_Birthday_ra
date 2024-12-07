@@ -20,13 +20,23 @@ function openBook() {
 let currentPage = 0;
 const pages = document.querySelectorAll('.page');
 
-function nextPage(pageIndex) {
-    // Hide current page
-    pages[currentPage].style.opacity = 0;
+function nextPage() {
+    // Flip the current page out
+    pages[currentPage].classList.remove('flip-in');
+    pages[currentPage].classList.add('flip-out');
 
     // Update to the next page
-    currentPage = pageIndex % pages.length;
+    currentPage = (currentPage + 1) % pages.length;
 
-    // Show the next page
-    pages[currentPage].style.opacity = 1;
+    // Flip the new page in
+    pages[currentPage].classList.remove('flip-out');
+    pages[currentPage].classList.add('flip-in');
 }
+
+// Initialize pages visibility and flip-in effect
+document.querySelector('.page-1').classList.add('flip-in');
+document.querySelector('.page-2').classList.add('flip-out');
+document.querySelector('.page-3').classList.add('flip-out');
+
+// Add event listener for page transitions
+document.querySelector('.book').addEventListener('click', nextPage);
