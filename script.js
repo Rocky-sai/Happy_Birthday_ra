@@ -2,9 +2,12 @@
 window.onload = () => {
     const bgMusic = new Audio('assets/audio/background.mp3');
     bgMusic.loop = true;
-    bgMusic.play();
+    bgMusic.muted = false;  // Ensure the audio is not muted
+    bgMusic.play().catch(error => {
+        // Handle the error if audio doesn't play due to autoplay policy
+        console.log('Audio autoplay error:', error);
+    });
 }
-
 // Open the book when clicked on the book cover
 function openBook() {
     document.getElementById('book').classList.add('open');
