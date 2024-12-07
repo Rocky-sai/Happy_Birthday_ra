@@ -1,12 +1,10 @@
+// Play background music automatically on page load
 window.onload = () => {
     const bgMusic = new Audio('assets/audio/background.mp3');
     bgMusic.loop = true;
-    bgMusic.muted = true;  // Start muted
-
-    bgMusic.play().then(() => {
-        // Once the muted audio starts, unmute it after the user interacts with the page
-        bgMusic.muted = false;
-    }).catch(error => {
+    bgMusic.muted = false;  // Ensure the audio is not muted
+    bgMusic.play().catch(error => {
+        // Handle the error if audio doesn't play due to autoplay policy
         console.log('Audio autoplay error:', error);
     });
 }
